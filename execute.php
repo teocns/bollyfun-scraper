@@ -167,7 +167,7 @@ class Scraper {
 		\Request::setCacheHome($cache_dir);
 		\Request::setDefaultOptions([
 			CURLOPT_TIMEOUT => 30,
-			CURLOPT_VERBOSE => 0,
+			CURLOPT_VERBOSE => false,
 			//CURLOPT_RETURNTRANSFER => 0
 		]); 
 
@@ -181,7 +181,7 @@ class Scraper {
 		$links = $this->fetchLinks();
 		echo 'Found '.count($links).' links';
 		$downloads = [];
-		$threads = 5;
+		$threads = 1;
 		foreach($links as $link_x => $link){
 			$is_last_link = (count($links) - 1) == $link_x;
 			echo "{$newline}";
@@ -211,8 +211,9 @@ class Scraper {
 			$video_name = preg_replace("/$date_formate2/","$1-$3-$4-",strtolower($video_name));
 			$video_name = preg_replace("/-episode(-\d+)?/", "",strtolower($video_name));
 
-			if(isset($keys[$video_basename]) || file_exists($video_name)){
-				echo "{$newline}Successfully downloaded to $video_name";
+			//if(isset($keys[$video_basename]) || file_exists($video_name)){
+			if(file_exists($video_name)){
+				echo "{$newline}Skipping duplicate $video_name";
 				continue;
 			}
 			echo "{$newline}Queueing...";
@@ -226,7 +227,7 @@ class Scraper {
 				$requests = [];
 				foreach($downloads as $download_x => $download){
 					extract($download);
-					$outs[$download_x] = fopen($video_name_tmp, 'w');
+					$outs[$download_x] = fopen($video_name_tmp, 'w+');
 					$requests[$download_x] = ['options' => []];
 					$requests[$download_x]['options'][CURLOPT_URL] = $video_link;
 					$requests[$download_x]['options'][CURLOPT_FILE] = $outs[$download_x];
@@ -269,7 +270,12 @@ class Scraper {
 		$contents = [];
 		foreach($datas as $data){
 			$instance = curl_init();
-			curl_setopt_array($instance, $data['options']);
+			try{
+				curl_setopt_array($instance, $data['options']);
+			}
+			catch (Exception $e){
+				continue;
+			}
 			$instances[] = $instance;
 		}
 		$mh = curl_multi_init();

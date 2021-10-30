@@ -29,3 +29,27 @@ Stack trace:
 #3 /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php(416): Scraper->execute()
 #4 {main}
   thrown in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/vendor/zendframework/zend-dom/src/Query.php on line 238
+[30-Oct-2021 02:30:33 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:30:33 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:30:41 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:30:41 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:31:14 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:31:14 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:32:06 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:32:06 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:32:29 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:32:29 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:33:04 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:33:04 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:33:24 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:33:24 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:34:37 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:34:37 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:34:58 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:34:58 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:34:58 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:34:58 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 272
+[30-Oct-2021 02:37:10 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:37:10 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 273
+[30-Oct-2021 02:37:17 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/meet-29-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 229
+[30-Oct-2021 02:37:17 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 273
