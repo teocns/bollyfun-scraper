@@ -211,15 +211,25 @@ class Scraper {
 			$video_name = preg_replace("/$date_formate2/","$1-$3-$4-",strtolower($video_name));
 			$video_name = preg_replace("/-episode(-\d+)?/", "",strtolower($video_name));
 
-			//if(isset($keys[$video_basename]) || file_exists($video_name)){
-			if(file_exists($video_name)){
+			if(isset($keys[$video_basename]) || file_exists($video_name)){
+			//if(file_exists($video_name)){
 				echo "{$newline}Skipping duplicate $video_name";
 				continue;
 			}
 			echo "{$newline}Queueing...";
 			$video_name_tmp = $video_name.'.tmp';
-			if(file_exists($video_name_tmp))
-				unlink($video_name_tmp);
+			if (!is_readable($video_name_tmp)){
+				continue;
+			}
+			if(file_exists($video_name_tmp)){
+				try{
+					unlink($video_name_tmp);
+				}
+				catch(Exception $e){
+					echo "{$newline}Couldn't delete $video_name_tmp";
+					continue;
+				}
+			}
 			$downloads[$video_name] = compact('video_link', 'video_basename', 'video_name', 'video_name_tmp');
 			if(count($downloads) >= $threads || $is_last_link){
 				echo "{$newline}{$newline}Downloading...";
@@ -239,13 +249,16 @@ class Scraper {
 				}
 				$this->multiRequest($requests);
 				foreach($downloads as $download_x => $download){
+					$keys[$video_basename] = 1;
 					extract($download);
 					if(!file_exists($video_name_tmp)){
 						echo "{$newline}Could not download";
+						unset($keys[$video_basename]);
 						continue;
 					}
 					if(filesize($video_name_tmp) <= 500000){
 						echo "{$newline}File too small";
+						unset($keys[$video_basename]);
 						continue;
 					}
 					fclose($outs[$download_x]);
@@ -258,7 +271,6 @@ class Scraper {
 
 					rename($video_name_tmp, $video_name);
 					chown($video_name, 'www');
-					$keys[$video_basename] = 1;
 					file_put_contents($keys_fn, json_encode($keys, JSON_PRETTY_PRINT));
 					echo "{$newline}Successfully downloaded to $video_name";
 				}
