@@ -1,0 +1,31 @@
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_USERAGENT - assumed 'CURLOPT_USERAGENT' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_REFERER - assumed 'CURLOPT_REFERER' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_VERBOSE - assumed 'CURLOPT_VERBOSE' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_FOLLOWLOCATION - assumed 'CURLOPT_FOLLOWLOCATION' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_RETURNTRANSFER - assumed 'CURLOPT_RETURNTRANSFER' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_HEADER - assumed 'CURLOPT_HEADER' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_POST - assumed 'CURLOPT_POST' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_SSL_VERIFYPEER - assumed 'CURLOPT_SSL_VERIFYPEER' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_COOKIEFILE - assumed 'CURLOPT_COOKIEFILE' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_COOKIEJAR - assumed 'CURLOPT_COOKIEJAR' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_CONNECTTIMEOUT - assumed 'CURLOPT_CONNECTTIMEOUT' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 47
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 163
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_VERBOSE - assumed 'CURLOPT_VERBOSE' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 164
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_URL - assumed 'CURLOPT_URL' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 94
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Warning:  Use of undefined constant CURLOPT_CUSTOMREQUEST - assumed 'CURLOPT_CUSTOMREQUEST' (this will throw an Error in a future version of PHP) in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 96
+[30-Oct-2021 01:41:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function curl_init() in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php:103
+Stack trace:
+#0 /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php(285): Request::send()
+#1 /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php(173): Scraper->fetchLinks()
+#2 /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php(416): Scraper->execute()
+#3 {main}
+  thrown in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/src/Request.php on line 103
+[30-Oct-2021 01:42:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'DOMDocument' not found in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/vendor/zendframework/zend-dom/src/Query.php:238
+Stack trace:
+#0 /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/vendor/zendframework/zend-dom/src/Query.php(216): Zend\Dom\Query->queryXpath()
+#1 /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php(290): Zend\Dom\Query->execute()
+#2 /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php(173): Scraper->fetchLinks()
+#3 /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php(416): Scraper->execute()
+#4 {main}
+  thrown in /home/whydoyoucare/Downloads/bollyfun/bollyfun/includes/lib/vendor/zendframework/zend-dom/src/Query.php on line 238

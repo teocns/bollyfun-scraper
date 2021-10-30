@@ -1,0 +1,23 @@
+{
+    "name": "iautomation/local",
+    "description": "",
+    "type": "library",
+    "require": {
+        "zendframework/zend-dom": "^2.7@dev",
+        "chrisyue/php-m3u8": "3",
+        "mervick/javascript-unpacker": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua McKenzie",
+            "email": "whereyoucanemailme@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
