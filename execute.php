@@ -152,6 +152,27 @@ class Scraper {
 
 	private $existing_video_ids = [];
 
+
+	private function fetchSinglePlatform($platform,$link){
+		try {
+			return $this->getVideoLinkFromPage($platform,$link);
+			// echo $video_link;
+		} catch (Exception $e) {
+			echo "{$newline}Couldn't fetch '$link' ", $e->getMessage();
+			
+		}
+		return null;
+	}
+
+	private function fetchMultiPlatform($link){
+		$lnk = $this->fetchSinglePlatform("vkspeed",$link);
+		if (is_null($lnk)) {
+			$lnk = $this->fetchSinglePlatform("vkprime",$link);
+			return $lnk;
+		}
+		return $lnk;
+	}
+
 	public function execute(){
 		$outname = 'kshows-results.json';
 		$video_localdir = '/www/wwwroot/videos/videos/indian';
@@ -187,13 +208,9 @@ class Scraper {
 			echo "{$newline}";
 			echo "{$newline}Fetching $link";
 			$video_link = null;
-			try {
-				$video_link = $this->getVideoLinkFromPage($link);
-				// echo $video_link;
-			} catch (Exception $e) {
-				echo "{$newline}Couldn't fetch '$link' ", $e->getMessage();
-				continue;
-			}
+			
+			$video_link = $this->fetchMultiPlatform($link);
+			
 			if(is_null($video_link)){
 				echo "{$newline}No video found";
 				continue;
@@ -372,14 +389,17 @@ class Scraper {
 		}
 		return false; 
 	}
-	public function getVideoLinkFromPage($link){
+	public function getVideoLinkFromPage($platform, $link){
 		$contents = \Request::send('GET', $link);
 		if($this->checkForValidity($contents) === false)
 			throw new \Exception('Could not retrieve page');
 		//echo "Got contents";
 		
-		preg_match('/vkspeed.php\?id=([a-z0-9]+)/', $contents, $match);
+		preg_match('/'.$platform.'.php\?id=([a-z0-9]+)/', $contents, $match);
 
+		// foreach ($match as $mm){
+		// 	echo "\nMatch: $mm\n";
+		// }
 
 		if(empty($match))return null;
 
@@ -391,7 +411,7 @@ class Scraper {
 		// 	return null;
 		// }
 		#echo $video_id;
-		$embed_url = "https://vkspeed.com/embed-$video_id.html";
+		$embed_url = "https://$platform.com/embed-$video_id.html";
 		
 
 		$contents = \Request::send('GET', $embed_url);
@@ -471,9 +491,26 @@ class Scraper {
 $scraper = new \Scraper();
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'execute';
 $scraper->{$action}();
+// $outname = 'kshows-results.json';
+// $video_localdir = '/www/wwwroot/videos/videos/indian';
+// if(!file_exists($video_localdir))
+// 	mkdir($video_localdir, 0755, true);
+// if(!file_exists($video_localdir))
+// 	throw new \Exception("Cannot access $video_localdir");
+// $cache_dir = __DIR__.'/tmp';
+// if(!file_exists($cache_dir))
+// 	mkdir($cache_dir, 0755, true);
+// if(!file_exists($cache_dir))
+// 	throw new \Exception("Cannot access $cache_dir");
+// \Request::setCacheHome($cache_dir);
+// \Request::setDefaultOptions([
+// 	CURLOPT_TIMEOUT => 30,
+// 	CURLOPT_VERBOSE => false,
+// 	//CURLOPT_RETURNTRANSFER => 0
+// ]); 
 
 
-// $links = $scraper->getVideoLinkFromPage('https://bollyfuntv.net/crime-patrol-29th-october-2021-full-episode-537/');
+// $links = $scraper->getVideoLinkFromPage('vkprime','https://bollyfuntv.net/bigg-boss-15-29th-october-2021-full-episode-28/');
 
 // echo "\n";
 // echo $links;
