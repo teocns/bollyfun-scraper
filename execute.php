@@ -181,7 +181,7 @@ class Scraper {
 		$links = $this->fetchLinks();
 		echo 'Found '.count($links).' links';
 		$downloads = [];
-		$threads = 1;
+		$threads = 5;
 		foreach($links as $link_x => $link){
 			$is_last_link = (count($links) - 1) == $link_x;
 			echo "{$newline}";
@@ -189,6 +189,7 @@ class Scraper {
 			$video_link = null;
 			try {
 				$video_link = $this->getVideoLinkFromPage($link);
+				// echo $video_link;
 			} catch (Exception $e) {
 				echo "{$newline}Couldn't fetch '$link' ", $e->getMessage();
 				continue;
@@ -211,16 +212,17 @@ class Scraper {
 			$video_name = preg_replace("/$date_formate2/","$1-$3-$4-",strtolower($video_name));
 			$video_name = preg_replace("/-episode(-\d+)?/", "",strtolower($video_name));
 
-			if(isset($keys[$video_basename]) || file_exists($video_name)){
+			if(isset($keys[$video_basename])){
 			//if(file_exists($video_name)){
 				echo "{$newline}Skipping duplicate $video_name";
 				continue;
 			}
 			echo "{$newline}Queueing...";
 			$video_name_tmp = $video_name.'.tmp';
-			if (!is_readable($video_name_tmp)){
-				continue;
-			}
+			// if (!is_readable($video_name_tmp)){
+			// 	exit("{$newline}Cannot write: $video_name_tmp. Please check for permissions for the folder.");
+			// 	continue;
+			// }
 			if(file_exists($video_name_tmp)){
 				try{
 					unlink($video_name_tmp);
@@ -232,10 +234,10 @@ class Scraper {
 			}
 			$downloads[$video_name] = compact('video_link', 'video_basename', 'video_name', 'video_name_tmp');
 			if(count($downloads) >= $threads || $is_last_link){
-				echo "{$newline}{$newline}Downloading...";
 				$outs = [];
 				$requests = [];
 				foreach($downloads as $download_x => $download){
+					echo "{$newline}{$newline}Downloading {$download_x}";
 					extract($download);
 					$outs[$download_x] = fopen($video_name_tmp, 'w+');
 					$requests[$download_x] = ['options' => []];
@@ -247,6 +249,7 @@ class Scraper {
 					//$requests[$download_x]['options'][CURLOPT_VERBOSE] = 0;
 					
 				}
+				echo "{$newline}{$newline}...";
 				$this->multiRequest($requests);
 				foreach($downloads as $download_x => $download){
 					$keys[$video_basename] = 1;
@@ -374,17 +377,19 @@ class Scraper {
 		if($this->checkForValidity($contents) === false)
 			throw new \Exception('Could not retrieve page');
 		//echo "Got contents";
+		
 		preg_match('/vkspeed.php\?id=([a-z0-9]+)/', $contents, $match);
+
 
 		if(empty($match))return null;
 
 		$video_id = $match[1];
-		echo "Found video id $video_id";
+		#echo "Found video id $video_id";
 		// Don't allow duplicate
-		if ($this->isDuplicate($video_id)) {
-			echo "Skipping duplicate video id: $video_id";
-			return null;
-		}
+		// if ($this->isDuplicate($video_id)) {
+		// 	echo "Skipping duplicate video id: $video_id";
+		// 	return null;
+		// }
 		#echo $video_id;
 		$embed_url = "https://vkspeed.com/embed-$video_id.html";
 		

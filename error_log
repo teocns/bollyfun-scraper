@@ -83,3 +83,8 @@ Stack trace:
 [30-Oct-2021 12:45:35 Europe/Berlin] PHP Warning:  unlink(/www/wwwroot/videos/videos/indian/bhagya-lakshmi-30-october-2021.mp4.tmp): Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 226
 [30-Oct-2021 12:45:35 Europe/Berlin] PHP Warning:  fopen(/www/wwwroot/videos/videos/indian/bhagya-lakshmi-30-october-2021.mp4.tmp): failed to open stream: Permission denied in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 240
 [30-Oct-2021 12:45:35 Europe/Berlin] PHP Warning:  curl_setopt_array(): supplied argument is not a valid File-Handle resource in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 286
+[30-Oct-2021 16:14:33 Europe/Berlin] PHP Notice:  Array to string conversion in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 240
+[30-Oct-2021 16:14:33 Europe/Berlin] PHP Notice:  Array to string conversion in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 240
+[30-Oct-2021 16:14:33 Europe/Berlin] PHP Notice:  Array to string conversion in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 240
+[30-Oct-2021 16:14:33 Europe/Berlin] PHP Notice:  Array to string conversion in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 240
+[30-Oct-2021 16:14:33 Europe/Berlin] PHP Notice:  Array to string conversion in /home/whydoyoucare/Downloads/bollyfun/bollyfun/execute.php on line 240
